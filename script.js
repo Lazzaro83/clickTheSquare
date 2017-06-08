@@ -4,7 +4,6 @@ function startuj(){
     var instructions = document.getElementById("objasnjenje");
     instructions.parentNode.removeChild(instructions);
     window.a = setInterval(function(){stvoriKocku()}, 2000);
-    a();
     function stvoriKocku(){
         brojac += 1;
         var x = Math.floor((Math.random() * 480) + 1);
@@ -16,10 +15,6 @@ function startuj(){
             if(e.target === a.lastElementChild){
                 a.lastElementChild.remove();
                 brojac--;
-                if(brojac === 50){
-                    alert("GAME OVER");
-                    clearInterval(window.a || window.c || window.d || window.f);
-                }
                 dodajPoene();
             }
         };
@@ -27,6 +22,10 @@ function startuj(){
         novo.style.left = x + 'px';
         var polje = document.getElementById('polje');
         polje.appendChild(novo);
+        if(brojac === 50){
+                    alert("GAME OVER");
+                    clearInterval(window.a && window.c && window.d && window.f);
+                }
     }
     function dodajPoene(){
         var poeni = document.getElementById("poeni").innerHTML;
@@ -44,7 +43,6 @@ function startuj(){
                 document.getElementById("obavestenje").style.backgroundColor = "";
                 document.getElementById("obavestenje").style.boxShadow = "0 0 0 0 #ffffff";}, 3000);
             window.c = setInterval(function(){stvoriKocku()}, 1700);
-            c();
         } else if(a === 200){
             clearInterval(window.c);
             document.getElementById("obavestenje").innerHTML = "Well done!";
@@ -55,8 +53,7 @@ function startuj(){
                 document.getElementById("obavestenje").style.backgroundColor = "";
                 document.getElementById("obavestenje").style.boxShadow = "0 0 0 0 #ffffff";}, 3000);
             window.d = setInterval(function(){stvoriKocku()}, 1400);
-            d();
-        } else if(a === 300){
+       } else if(a === 300){
             clearInterval(window.d);
             document.getElementById("obavestenje").innerHTML = "You are great!!!!";
             document.getElementById("obavestenje").style.backgroundColor = "gold";
@@ -66,8 +63,7 @@ function startuj(){
                 document.getElementById("obavestenje").style.backgroundColor = "";
                 document.getElementById("obavestenje").style.boxShadow = "0 0 0 0 #ffffff";}, 3000);
             window.f = setInterval(function(){stvoriKocku()},1100);
-            f();
-        } else if(a === 400){
+       } else if(a === 400){
             clearInterval(window.f);
             document.getElementById("obavestenje").innerHTML = "Almost there!!!!";
             document.getElementById("obavestenje").style.backgroundColor = "gold";
@@ -77,8 +73,7 @@ function startuj(){
                 document.getElementById("obavestenje").style.backgroundColor = "";
                 document.getElementById("obavestenje").style.boxShadow = "0 0 0 0 #ffffff";}, 3000);
             window.g = setInterval(function(){stvoriKocku()}, 800);
-            g();
-        } else if (a === 500){
+       } else if (a === 500){
             clearInterval(window.g);
             alert("YOU WON!!!");
         }
