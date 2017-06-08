@@ -1,9 +1,11 @@
 /* Created by casad on 6/5/2017. */
+var intervals = [];
 function startuj(){
     var brojac = 0;
     var instructions = document.getElementById("objasnjenje");
     instructions.parentNode.removeChild(instructions);
     window.a = setInterval(function(){stvoriKocku()}, 2000);
+    intervals.push(window.a);
     function stvoriKocku(){
         brojac += 1;
         var x = Math.floor((Math.random() * 480) + 1);
@@ -23,8 +25,8 @@ function startuj(){
         var polje = document.getElementById('polje');
         polje.appendChild(novo);
         if(brojac === 50){
+                	intervals.forEach(clearInterval);
                     alert("GAME OVER");
-                    clearInterval(window.a && window.c && window.d && window.f);
                 }
     }
     function dodajPoene(){
@@ -43,6 +45,7 @@ function startuj(){
                 document.getElementById("obavestenje").style.backgroundColor = "";
                 document.getElementById("obavestenje").style.boxShadow = "0 0 0 0 #ffffff";}, 3000);
             window.c = setInterval(function(){stvoriKocku()}, 1700);
+            intervals.push(window.c);
         } else if(a === 200){
             clearInterval(window.c);
             document.getElementById("obavestenje").innerHTML = "Well done!";
@@ -53,6 +56,7 @@ function startuj(){
                 document.getElementById("obavestenje").style.backgroundColor = "";
                 document.getElementById("obavestenje").style.boxShadow = "0 0 0 0 #ffffff";}, 3000);
             window.d = setInterval(function(){stvoriKocku()}, 1400);
+            intervals.push(window.d);
        } else if(a === 300){
             clearInterval(window.d);
             document.getElementById("obavestenje").innerHTML = "You are great!!!!";
@@ -63,6 +67,7 @@ function startuj(){
                 document.getElementById("obavestenje").style.backgroundColor = "";
                 document.getElementById("obavestenje").style.boxShadow = "0 0 0 0 #ffffff";}, 3000);
             window.f = setInterval(function(){stvoriKocku()},1100);
+            intervals.push(window.f);
        } else if(a === 400){
             clearInterval(window.f);
             document.getElementById("obavestenje").innerHTML = "Almost there!!!!";
@@ -73,6 +78,7 @@ function startuj(){
                 document.getElementById("obavestenje").style.backgroundColor = "";
                 document.getElementById("obavestenje").style.boxShadow = "0 0 0 0 #ffffff";}, 3000);
             window.g = setInterval(function(){stvoriKocku()}, 800);
+            intervals.push(window.g);
        } else if (a === 500){
             clearInterval(window.g);
             alert("YOU WON!!!");
